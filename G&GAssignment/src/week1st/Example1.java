@@ -16,6 +16,11 @@ public class Example1 {
 		 */
 		public int countOf(char chr) {
 			int cnt = 0;
+			
+			if(content == null || content.isEmpty()) {
+				return cnt;
+			}
+			
 			if(65 <= chr && chr <= 90) {
 				chr = (char) (chr + 32);
 			}
@@ -23,6 +28,7 @@ public class Example1 {
 			
 			for(int i = 0; i < length; i++) {
 				String checkContent = content.toLowerCase();
+				char check = checkContent.charAt(i);
 				
 				/*
 				 * メソードを使わない場合
@@ -32,7 +38,6 @@ public class Example1 {
 				 * }
 				 */
 				
-				char check = checkContent.charAt(i);
 				if(chr == check) cnt++;
 			}
 			
