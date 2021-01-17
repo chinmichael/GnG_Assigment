@@ -24,14 +24,14 @@ public class Example1 {
 			if(65 <= chr && chr <= 90) {
 				chr = (char) (chr + 32);
 			}
-			int length = content.length();
 			
-			for(int i = 0; i < length; i++) {
-				String checkContent = content.toLowerCase();
+			String checkContent = content.toLowerCase();
+			
+			for(int i = 0; i < content.length(); i++) {
 				char check = checkContent.charAt(i);
 				
 				/*
-				 * メソードを使わない場合
+				 * toLowerCase()メソードを使わない場合
 				 * char check = content.charAt(i);
 				 * if(65 <= check && check <= 90) {
 				 * 		check = (char) (check + 32);
