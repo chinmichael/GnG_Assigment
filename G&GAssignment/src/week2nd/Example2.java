@@ -9,7 +9,7 @@ public class Example2 {
 			this.content = text;
 		}
 		
-		// ÜÁğíªµªìªÆª¤ªë¡¸content¡¹ªÎñéªË¡¢¡¸Ùşí®¡¹ª¬ù¼üŞŞÅªïªìªÆª¤ªëª«ªòÍªß©ª¹ªë
+		// ä¿å­˜ã•ã‚Œã¦ã„ã‚‹ã€Œcontentã€ã®ä¸­ã«ã€ã€Œæ–‡å­—ã€ã¯ä½•å›ä½¿ã‚ã‚Œã¦ã„ã‚‹ã®ã‹ã‚’è¨ˆç®—ã™ã‚‹
 		public int countOf(char chr) {
 			int cnt = 0;
 			
