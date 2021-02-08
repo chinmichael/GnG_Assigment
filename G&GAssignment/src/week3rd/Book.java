@@ -12,7 +12,7 @@ import java.util.Vector;
 
 public class Book {
 	
-	public static class BookData {
+	public static class BookVO {
 		private String title;
 		private String writer;
 		private String publisher;
@@ -102,7 +102,7 @@ public class Book {
 			return price;
 		}
 		public void setPrice(String input_price) {	
-			if(input_price == null) {
+			if(input_price == null || input_price.isEmpty()) {
 				flg = false;
 			} else {
 				long check = Long.parseLong(input_price);
@@ -123,8 +123,8 @@ public class Book {
 	}
 	
 	public static class CsvUtil {
-		public List<BookData> readCsv(String filePath) {
-			List<BookData> list = new Vector<BookData>();
+		public List<BookVO> readCsv(String filePath) {
+			List<BookVO> list = new Vector<BookVO>();
 			File csv = new File(filePath);
 			BufferedReader br = null;
 			
@@ -135,7 +135,7 @@ public class Book {
 				
 				while ((line = br.readLine()) != null) {
 					String[] token = line.split(",");
-					BookData inform = new BookData();
+					BookVO inform = new BookVO();
 					
 					if(token.length != 6) {
 						inform.setFlg(false); // last price token : 必須
@@ -170,13 +170,13 @@ public class Book {
 	public static void main(String[] args) {
 		String filePath = "C:\\Users\\chinm\\Desktop\\books.csv";
 		CsvUtil util = new CsvUtil();
-		List<BookData> list = util.readCsv(filePath);
+		List<BookVO> list = util.readCsv(filePath);
 		SimpleDateFormat outDate = new SimpleDateFormat("yyyy年M月d日");
 		DecimalFormat outPrice = new DecimalFormat("###,###");
 		
 		System.out.println("-------------------------------------");
 		for(int i = 0; i < list.size(); i++) {
-			BookData inform = list.get(i);
+			BookVO inform = list.get(i);
 			if(inform.getFlg()) {
 				System.out.println(inform.getTitle());
 				System.out.println("著：" + inform.getWriter());
